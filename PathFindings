@@ -1,0 +1,59 @@
+local PathfindingService = game:GetService("PathfindingService")
+local Players = game:GetService("Players")
+
+local function findPathAndMove(player, startPos, endPos)
+    local path = PathfindingService:CreatePath({
+        AgentRadius = 2,
+        AgentHeight = 5,
+        AgentCanJump = true,
+        AgentJumpHeight = 7,
+        AgentMaxSlope = 45,
+        Costs = {
+            Water = 100
+        }
+    })
+    
+    path:ComputeAsync(startPos, endPos)
+    local waypoints = path:GetWaypoints()
+    
+    if path.Status == Enum.PathStatus.Complete then
+        print("Đường đi đã được tìm thấy!")
+        local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            for _, waypoint in ipairs(waypoints) do
+                if waypoint.Action == Enum.PathWaypointAction.Jump then
+                    humanoid:MoveTo(waypoint.Position)
+                    humanoid.Jump = true
+                else
+                    humanoid:MoveTo(waypoint.Position)
+                end
+                
+                humanoid.MoveToFinished:Wait()
+            end
+        end
+    else
+        print("Không tìm thấy đường đi.")
+    end
+end
+
+local function createPartAtPosition(position)
+    local part = Instance.new("Part")
+    part.Size = Vector3.new(1, 1, 1)
+    part.Position = position
+    part.Anchored = true
+    part.Parent = workspace
+    return part
+end
+
+local function moveToPosition(player, destination)
+    if typeof(destination) == "CFrame" then
+        destination = destination.Position
+    elseif typeof(destination) == "Vector3" then
+        createPartAtPosition(destination)
+    end
+    
+    local startPos = player.Character.PrimaryPart.Position
+    findPathAndMove(player, startPos, destination)
+end
+
+-- return true
