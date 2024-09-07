@@ -1,4 +1,4 @@
-local lib = {RainbowColorValue = 0, HueSelectionPosition = 0,Default=game.Players.LocalPlayer.PlayerGui}
+local lib = {RainbowColorValue = 0, HueSelectionPosition = 0,Default=game.CoreGui}
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
