@@ -44,7 +44,7 @@ end
 local ValueWebhookIDK = 0
 spawn(function()
     while wait() do
-        if Reset and ValueWebhookIDK == 0 and game:GetService("Players")["LocalPlayer"].Data.Beli.Value >= BeliValue and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman") ~= 0 then
+        if Reset and ValueWebhookIDK == 0 and game:GetService("Players")["LocalPlayer"].Data.Beli.Value >= BeliValue  then
             ValueWebhookIDK = ValueWebhookIDK + 1
             local ContentSyn = "Huhu"
             if game:GetService("Players")["LocalPlayer"].Data.Beli.Value >= BalieValue then
