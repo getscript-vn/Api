@@ -1,4 +1,4 @@
--- MacLib UILibrary Version : 1.0.0
+-- MacLib UILibrary Version : 1.0.1
 local MacLib = { 
 	Options = {}, 
 	Folder = "Maclib", 
@@ -430,7 +430,7 @@ function MacLib:Window(Settings)
 		Enum.FontWeight.SemiBold,
 		Enum.FontStyle.Normal
 	)
-	title.Text = Settings.Title
+	title.Text = "getscript-vn"
 	title.TextColor3 = Color3.fromRGB(255, 255, 255)
 	title.RichText = true
 	title.TextSize = 18
@@ -1531,11 +1531,7 @@ end)
 				section.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				section.BorderSizePixel = 0
 				section.Position = UDim2.fromScale(0, 6.78e-08)
-                                if Settings.a then
-				section.Size = UDim2.fromScale(2, 0)
-				else
 				section.Size = UDim2.fromScale(1, 0)
-                                end
 				section.ClipsDescendants = true
 				section.Parent = Settings.Side == "Left" and left or right
 
