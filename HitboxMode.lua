@@ -1,5 +1,5 @@
+-- Open Soucre
 local MacLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/getscript-vn/Api/refs/heads/main/uilibrary'))()
-
 local Window = MacLib:Window({
 Title = "MMB Hub",
 Subtitle = "Cộng Đồng Việt Nam [HitboxMode]",
@@ -70,6 +70,13 @@ sections.MainSection1:Button({
             if acombat:FindFirstChild('Handle') then
             acombat.Handle.Size = Vector3.new(getgenv().HitboxX,getgenv().HitboxY,getgenv().HitboxZ)
             acombat.Handle.Transparency = 0.8
+            local selectionBox = Instance.new("SelectionBox")
+            selectionBox.Adornee = acombat.Handle
+            selectionBox.Parent = acombat.Handle
+            selectionBox.Name = 'WeldConstraint'
+            selectionBox.LineThickness = 0.05
+            selectionBox.Color3 = Color3.fromRGB(0, 170, 255)
+            selectionBox.SurfaceTransparency = 1
             Window:Notify({
                 Title = "getscript-vn",
                 Description = "Added Hitbox."
