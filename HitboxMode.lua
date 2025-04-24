@@ -90,3 +90,10 @@ sections.MainSection1:Button({
         end
     end,
 })
+
+        local VirtualUser = cloneref(game:GetService("VirtualUser"))
+        game.Players.LocalPlayer.Idled:Connect(function()
+            VirtualUser:CaptureController()
+            VirtualUser:ClickButton2(Vector2.new())
+        end)
+        warn('Anti AFK Select Mode 2')
