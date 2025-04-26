@@ -1532,7 +1532,7 @@ end)
 				section.BorderSizePixel = 0
 				section.Position = UDim2.fromScale(0, 6.78e-08)
                                 if Settings.a then
-                                section.Size = UDim2.fromScale(2, 0)
+                                section.Size = UDim2.fromScale(2.2, 0)
 else
 				section.Size = UDim2.fromScale(1, 0)
 end
