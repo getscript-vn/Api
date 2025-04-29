@@ -1,0 +1,73 @@
+-- xoa cay cỏ
+if workspace:FindFirstChild("tree") then
+    workspace.tree:Destroy()
+end
+-- xóa đèn
+if workspace:FindFirstChild("Ligting") then
+    workspace.Ligting:Destroy()
+end
+-- xóa trụ điện
+if workspace:FindFirstChild("tru dien") then
+    workspace["tru dien"]:Destroy()
+end
+-- xóa tường tàng hình
+if workspace:FindFirstChild("invisiblewall") then
+    workspace["invisiblewall"]:Destroy()
+end
+-- xóa chùa
+if workspace:FindFirstChild("Ch\195\185a") then
+workspace["Ch\195\185a"]:Destroy()
+end
+-- xóa decal
+for i,v in pairs(game.Workspace:GetDescendants()) do
+    if v.ClassName == 'Decal' or (v.ClassName == "Part" and v.Material == "Plastic") then
+       v:Destroy()
+    end
+end
+
+local RunService = game:GetService("RunService")
+local Lighting = game:GetService("Lighting")
+local Terrain = workspace:FindFirstChildOfClass("Terrain")
+
+if Terrain then
+	Terrain.WaterWaveSize = 0
+	Terrain.WaterWaveSpeed = 0
+	Terrain.WaterReflectance = 0
+	Terrain.WaterTransparency = 0
+end
+
+Lighting.GlobalShadows = false
+Lighting.FogEnd = 9e9
+
+pcall(function()
+	settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
+end)
+
+for _, v in pairs(game:GetDescendants()) do
+	if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+		v.Material = Enum.Material.Plastic
+		v.Reflectance = 0
+	elseif v:IsA("Decal") then
+		v.Transparency = 1
+	elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+		v.Lifetime = NumberRange.new(0)
+	elseif v:IsA("Explosion") then
+		v.BlastPressure = 1
+		v.BlastRadius = 1
+	end
+end
+
+for _, v in pairs(Lighting:GetDescendants()) do
+	if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
+		v.Enabled = false
+	end
+end
+
+workspace.DescendantAdded:Connect(function(child)
+	task.spawn(function()
+		if child:IsA("ForceField") or child:IsA("Sparkles") or child:IsA("Smoke") or child:IsA("Fire") then
+			RunService.Heartbeat:Wait()
+			child:Destroy()
+		end
+	end)
+end)
