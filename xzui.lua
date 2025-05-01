@@ -1,4 +1,4 @@
--- youngtobieedasick : obito v1 dasgcvcxdfds
+-- youngtobieedasick : obito v1 gadgsgsgagsagsagsagasg
 do 
 	-- Module GetService
 	RunService = game:GetService("RunService")
@@ -242,7 +242,7 @@ checkDevice()
 library.new = function(libraryinfo)
 	local SitinkGui = utils.create("ScreenGui", {
 		Name = "XZ GUI",
-		Parent = game:GetService("CoreGui") or (gethui) and gethui() or ((RunService:IsStudio()) and PlayerGui or game:GetService("CoreGui")),
+		Parent = (gethui) and gethui() or ((RunService:IsStudio()) and PlayerGui or game:GetService("CoreGui")),
 		ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
 	})
 
@@ -256,7 +256,7 @@ library.new = function(libraryinfo)
 		BorderColor3 = Color3.fromRGB(0, 0, 0),
 		BorderSizePixel = 0,
 		Size = libraryinfo.Size or UDim2.new(0, 500, 0, 300),
-		BackgroundTransparency = libraryinfo.Transparency or 1
+		BackgroundTransparency = libraryinfo.Transparency or 0
 	})
 
 	Main.Position = UDim2.new(0, (SitinkGui.AbsoluteSize.X // 2 - Main.Size.X.Offset // 2), 0, (SitinkGui.AbsoluteSize.Y // 2 - Main.Size.Y.Offset // 2))
@@ -337,7 +337,7 @@ library.new = function(libraryinfo)
 		Size = UDim2.new(1, -15, 1, -15),
 		Image = "rbxassetid://18328658828",
 	})
-
+    if libraryinfo.Dropshadow then
 	local DropShadowHolder = utils.create("Frame", {
 		Name = "DropShadowHolder",
 		Parent = Main,
@@ -362,7 +362,7 @@ library.new = function(libraryinfo)
 		ScaleType = Enum.ScaleType.Slice,
 		SliceCenter = Rect.new(49, 49, 450, 450),
 	})
-
+    end
 	local LayersTab = utils.create("Frame", {
 		Name = "LayersTab",
 		Parent = Main,
@@ -437,7 +437,15 @@ library.new = function(libraryinfo)
 		Position = UDim2.new(0, 5, 0.5, 0),
 		Size = UDim2.new(0, 25, 0, 25),
 	})
-
+    utils.create("ImageLabel", {
+        Parent = LogFrame,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BorderColor3 = Color3.fromRGB(0, 0, 0),
+        BorderSizePixel = 0,
+        Size = UDim2.new(1, 0, 1, 0),
+        ZIndex = 0,
+        Image = libraryinfo.BackgroundLogFrame and "rbxassetid://"..libraryinfo.BackgroundLogFrame or "",
+    })
 	local LogoPlayer = utils.create("ImageLabel", {
 		Name = "LogoPlayer",
 		Parent = LogoFrame,
@@ -969,6 +977,7 @@ library.new = function(libraryinfo)
 				BorderColor3 = Color3.fromRGB(0, 0, 0),
 				BorderSizePixel = 0,
 				Size = UDim2.new(1, -8, 0, 44),
+                BackgroundTransparency = libraryinfo.Transparency or 0
 				LayoutOrder = SelectionOrders
 			})
 
@@ -1094,6 +1103,7 @@ library.new = function(libraryinfo)
 					BackgroundColor3 = Color3.fromRGB(42, 42, 42),
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
+                    BackgroundTransparency = libraryinfo.Transparency or 0
 					Size = UDim2.new(1, -8, 0, 44),
 				})
 
@@ -1271,6 +1281,7 @@ library.new = function(libraryinfo)
 					BackgroundColor3 = Color3.fromRGB(42, 42, 42),
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
+                    BackgroundTransparency = libraryinfo.Transparency or 0
 					Size = UDim2.new(1, -8, 0, 44),
 				})
 
@@ -1383,6 +1394,7 @@ library.new = function(libraryinfo)
 					BackgroundColor3 = Color3.fromRGB(42, 42, 42),
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
+                    BackgroundTransparency = libraryinfo.Transparency or 0
 					Size = UDim2.new(1, -8, 0, 44),
 				})
 
@@ -1513,6 +1525,7 @@ library.new = function(libraryinfo)
 					BackgroundColor3 = Color3.fromRGB(42, 42, 42),
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
+                    BackgroundTransparency = libraryinfo.Transparency or 0
 					Size = UDim2.new(1, -8, 0, 44),
 				})
 
@@ -1711,6 +1724,7 @@ library.new = function(libraryinfo)
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
 					ClipsDescendants = true,
+                    BackgroundTransparency = libraryinfo.Transparency or 0
 					Size = UDim2.new(1, -8, 0, 44),
 				})
 
@@ -2112,6 +2126,7 @@ library.new = function(libraryinfo)
 					Name = "TextInput",
 					Parent = selection_ScrollLayer,
 					BackgroundColor3 = Color3.fromRGB(42, 42, 42),
+                    BackgroundTransparency = libraryinfo.Transparency or 0
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
 					Size = UDim2.new(1, -8, 0, 44),
