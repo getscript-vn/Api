@@ -256,6 +256,7 @@ library.new = function(libraryinfo)
 		BorderColor3 = Color3.fromRGB(0, 0, 0),
 		BorderSizePixel = 0,
 		Size = libraryinfo.Size or UDim2.new(0, 500, 0, 300),
+		BackgroundTransparency = libraryinfo.Transparency or 1
 	})
 
 	Main.Position = UDim2.new(0, (SitinkGui.AbsoluteSize.X // 2 - Main.Size.X.Offset // 2), 0, (SitinkGui.AbsoluteSize.Y // 2 - Main.Size.Y.Offset // 2))
