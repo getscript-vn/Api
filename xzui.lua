@@ -1,4 +1,4 @@
--- youngtobieedasick : obito v1 gadgsgsgagsagsagsagasg
+-- uay dung skid nha 
 do 
 	-- Module GetService
 	RunService = game:GetService("RunService")
@@ -977,7 +977,7 @@ library.new = function(libraryinfo)
 				BorderColor3 = Color3.fromRGB(0, 0, 0),
 				BorderSizePixel = 0,
 				Size = UDim2.new(1, -8, 0, 44),
-                BackgroundTransparency = libraryinfo.Transparency or 0
+                BackgroundTransparency = libraryinfo.Transparency or 0,
 				LayoutOrder = SelectionOrders
 			})
 
@@ -1103,7 +1103,7 @@ library.new = function(libraryinfo)
 					BackgroundColor3 = Color3.fromRGB(42, 42, 42),
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
-                    BackgroundTransparency = libraryinfo.Transparency or 0
+                    BackgroundTransparency = libraryinfo.Transparency or 0,
 					Size = UDim2.new(1, -8, 0, 44),
 				})
 
@@ -1281,7 +1281,7 @@ library.new = function(libraryinfo)
 					BackgroundColor3 = Color3.fromRGB(42, 42, 42),
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
-                    BackgroundTransparency = libraryinfo.Transparency or 0
+                    BackgroundTransparency = libraryinfo.Transparency or 0,
 					Size = UDim2.new(1, -8, 0, 44),
 				})
 
@@ -1394,7 +1394,7 @@ library.new = function(libraryinfo)
 					BackgroundColor3 = Color3.fromRGB(42, 42, 42),
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
-                    BackgroundTransparency = libraryinfo.Transparency or 0
+                    BackgroundTransparency = libraryinfo.Transparency or 0,
 					Size = UDim2.new(1, -8, 0, 44),
 				})
 
@@ -1525,7 +1525,7 @@ library.new = function(libraryinfo)
 					BackgroundColor3 = Color3.fromRGB(42, 42, 42),
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
-                    BackgroundTransparency = libraryinfo.Transparency or 0
+                    BackgroundTransparency = libraryinfo.Transparency or 0,
 					Size = UDim2.new(1, -8, 0, 44),
 				})
 
@@ -1724,7 +1724,7 @@ library.new = function(libraryinfo)
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
 					ClipsDescendants = true,
-                    BackgroundTransparency = libraryinfo.Transparency or 0
+                    BackgroundTransparency = libraryinfo.Transparency or 0,
 					Size = UDim2.new(1, -8, 0, 44),
 				})
 
@@ -2126,7 +2126,7 @@ library.new = function(libraryinfo)
 					Name = "TextInput",
 					Parent = selection_ScrollLayer,
 					BackgroundColor3 = Color3.fromRGB(42, 42, 42),
-                    BackgroundTransparency = libraryinfo.Transparency or 0
+                    BackgroundTransparency = libraryinfo.Transparency or 0,
 					BorderColor3 = Color3.fromRGB(0, 0, 0),
 					BorderSizePixel = 0,
 					Size = UDim2.new(1, -8, 0, 44),
