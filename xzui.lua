@@ -1,4 +1,4 @@
--- uay dung skid nha 
+-- Dropdown ajgbajsigbsaibgiasbgbasasbhgasbgsabhgauigbhlsaagagsasaaagsa
 do 
 	-- Module GetService
 	RunService = game:GetService("RunService")
@@ -265,6 +265,16 @@ library.new = function(libraryinfo)
 		CornerRadius = UDim.new(0, 5),
 		Parent = Main,
 	})
+
+    utils.create("ImageLabel", {
+        Parent = Main,
+        BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+        BorderColor3 = Color3.fromRGB(0, 0, 0),
+        BorderSizePixel = 0,
+        Size = UDim2.new(1, 0, 1, 0),
+        ZIndex = 0,
+        Image = libraryinfo.BackgroundLogImage and "rbxassetid://"..libraryinfo.BackgroundLogImage or "",
+    })
 
 	local Top = utils.create("Frame", {
 		Name = "Top",
