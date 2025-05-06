@@ -69,14 +69,15 @@ spawn(function()
 					textLabel.Text = "Máu NPC2: " .. math.floor(humanoid.Health)
 					wait(0.2)
 				end
+				if not Killzzzzz then
 				textLabel.Text = "NPC đã chết"
 				killCount = killCount + 1
 				killCountLabel.Text = "Đã giết: " .. killCount
-
+Killzzzzz = true
 				pcall(function()
 					writefile("killboss.txt", tostring(killCount))
 				end)
-
+			        end
 				wait(2)
 			else
 				textLabel.Text = "Không tìm thấy Humanoid"
@@ -87,4 +88,12 @@ spawn(function()
 			wait(2)
 		end
 	end
+end)
+spawn(function()
+ while wait() do 
+ if Killzzzzz then
+    wait(10)
+				Killzzzzz = nil
+ end
+end
 end)
