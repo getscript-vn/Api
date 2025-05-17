@@ -1,12 +1,36 @@
-local Services							= setmetatable({}, { __index = function(Self, Key) return game.GetService(game, Key) end })
-local Client							= Services.Players.LocalPlayer
-local SMethod							= (WebSocket and WebSocket.connect)
+local Services = setmetatable({}, {
+	__index = function(Self, Key)
+		return game:GetService(Key)
+	end
+})
 
-if not SMethod then return warn('not websocket') end
-repeat wait()
-warn('reconect websocket')
-local SMethod							= (WebSocket and WebSocket.connect)
-until SMethod
+local Client = Services.Players.LocalPlayer
+
+local function waitForWebSocket(timeout)
+	local startTime = tick()
+	while not (WebSocket and WebSocket.connect) do
+		warn("Reconnecting WebSocket...")
+		task.wait(1)
+		if timeout and tick() - startTime > timeout then
+			warn("WebSocket connection timed out.")
+			return nil
+		end
+	end
+	return WebSocket.connect
+end
+
+local SMethod = (WebSocket and WebSocket.connect)
+
+if not SMethod then
+	warn("WebSocket not available. Attempting to reconnect...")
+	SMethod = waitForWebSocket(10)
+end
+
+if not SMethod then
+	warn("Failed to connect to WebSocket.")
+	return
+end
+
 local Main							= function()
 	local Success, WebSocket				= pcall(SMethod, "ws://localhost:9000/")
     	local Closed						= false
